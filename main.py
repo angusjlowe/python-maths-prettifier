@@ -5,6 +5,7 @@ from flask import render_template
 from flask import request
 from flask import json
 from sympy import *
+import os
 
 app = Flask(__name__)
 letters = string.lowercase[:26]
