@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Arsenal" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/agate.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 
 
     <title>Python Maths Prettifier</title>
@@ -17,8 +21,8 @@
   </head>
   <body ng-app='myApp'>
       <div class="container">
-        <h1>Python Maths Prettifier</h1>
-        <div class="row">
+        <header><h1>Python Maths Prettifier</h1></header>
+        <div class="row row1">
            <div class="col-md-4">
               <form>
                  <div class="form-group">
@@ -28,13 +32,12 @@
                  </div>
               </form>
               <h2>Python expression:</h2>
-              <h2>{{ '{{equation}}' }}</h2>
+              <pre><code class="python">{{ '{{equation}}' }}</code></pre>
               <br>
               <button class="btn btn-success" id="render">Render</button>
            </div>
-           <hr>
-           <div class="col-md-5">
-             <h4 id="result">\({ e^{i\pi} + 1 }\)</h4>
+           <div class="col-md-7 result-box">
+             <h3 id="result">\({ e^{i\pi} + 1 }\)</h3>
            </div>
          </div>
       </div>

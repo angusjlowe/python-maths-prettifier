@@ -14,6 +14,10 @@ $( document ).ready(function() {
    init();
    renderButton.addEventListener('click', () => {
       var input = $('#equation').val();
+      $('code').html(input);
+      $('code').each(function(i, block) {
+         hljs.highlightBlock(block);
+      });
       console.log("input was: " + input);
       $.ajax({
            url: '/',
@@ -24,8 +28,7 @@ $( document ).ready(function() {
                var jsonData = JSON.parse(response);
                var latex = jsonData.equation;
                if(latex == ' ') {
-                  var math = MathJax.Hub.getAllJax('result')[0];
-                  MathJax.Hub.Queue(["Text", math, 'something  wrong  with   your  python  expression']);
+                  $('#result').html('Something wrong with your python equation');
                   console.log(response);
                } else {
                   var math = MathJax.Hub.getAllJax('result')[0];
